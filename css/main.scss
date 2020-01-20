@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+html {
+  overflow-y: scroll;
+}
+// Header section
+header {
+  height: 90px;
+  box-shadow: 0px -16px 16px 5px #000;
+  .container {
+    width: 85vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+  }
+}
+.hamburger {
+  .line {
+    height: 3px;
+    width: 100%;
+    background-color: lightgray;
+  }
+  border: 1px solid rgba(128, 128, 128, 0);
+  padding: 5px;
+  width: 60px;
+  height: 45px;
+  display: none;
+}
+.main-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  min-width: 500px;
+  transition: all 0.5s ease-out;
+  li {
+    list-style: none;
+    a {
+      text-decoration: none;
+      color: #444444;
+    }
+  }
+}
+
+// Section one (Slider)
+.section-one {
+  height: auto;
+}
+.slider-container {
+  overflow: hidden;
+}
+.slide-carousel {
+  display: flex;
+}
+.slider-buttons {
+  position: relative;
+  .prev,
+  .next {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: black;
+    color: #fff;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    text-align: center;
+    line-height: 27px;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: all 0.1s ease-out;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .next {
+    left: 50px;
+  }
+}
+.slide {
+  position: relative;
+  img {
+    width: 100vw;
+  }
+}
+.slide-text {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 17vw;
+  left: 50%;
+  transform: translate(-50%, 0);
+  .slide-text-header {
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    background-color: #000;
+    color: #fff;
+    padding: 0 2.5em;
+    letter-spacing: 4px;
+  }
+  .slide-text-p {
+    margin-top: 10px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+}
+// Section two
+.partitions {
+  width: 85vw;
+  height: 70px;
+  margin: 30px auto;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  ul {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+  }
+}
+.partition {
+  text-transform: uppercase;
+  height: auto;
+  font-weight: bold;
+  color: #777;
+  display: flex;
+  cursor: pointer;
+  &:hover {
+    color: #000;
+  }
+}
+.slash {
+  width: 1px;
+  height: 70%;
+  background-color: lightgray;
+  display: block;
+  transform: rotate(20deg);
+}
+
+/* ---- grid ---- */
+
+.grid {
+  width: 55vw;
+  margin: auto;
+}
+
+/* clear fix */
+.grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* ---- .grid-item ---- */
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+.grid-item {
+  float: left;
+  transition: all 0.2s ease-out;
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    transform: scale(1.02);
+    z-index: 10;
+  }
+}
+
+.grid-item-wrapper {
+  position: absolute;
+  background-color: gray;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+  color: white;
+  font-size: 36px;
+  text-align: center;
+  i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  // Header
+  .hamburger {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    &:hover {
+      border: 1px solid rgba(128, 128, 128, 0.2);
+      border-radius: 3px;
+    }
+  }
+  .main-menu {
+    opacity: 0;
+    position: absolute;
+    top: 90px;
+    left: -78vh;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 40vh;
+    z-index: 1000;
+    background-color: #fff;
+  }
+  .display {
+    opacity: 1;
+    display: flex;
+    left: 0;
+  }
+  // Section one
+  .slide-text {
+    .slide-text-header {
+      font-size: 1.5rem;
+    }
+    .slide-text-p {
+      font-size: 1rem;
+    }
+  }
+  // Section two
+  .partitions {
+    height: 40px;
+    margin: 10px auto;
+    ul {
+      width: 100%;
+    }
+  }
+  .partition {
+    font-size: 11px;
+  }
+  .grid {
+    width: 90vw;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  // Section one
+  .slide-text {
+    .slide-text-header {
+      font-size: 1rem;
+    }
+    .slide-text-p {
+      font-size: 0.4rem;
+    }
+  }
+
+  // Section two
+  .partitions {
+    height: 30px;
+    margin: 5px auto;
+  }
+  .grid-sizer,
+  .grid-item {
+    width: 50%;
+  }
+}
