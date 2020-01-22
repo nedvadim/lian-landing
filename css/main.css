@@ -151,7 +151,7 @@ header .container {
   font-size: 1.2rem;
 }
 
-.partitions {
+.partitions-container {
   width: 85vw;
   height: 70px;
   margin: 30px auto;
@@ -159,7 +159,7 @@ header .container {
   border-bottom: 1px solid lightgray;
 }
 
-.partitions ul {
+.partitions-container .partitions {
   width: 75%;
   margin: 0 auto;
   display: -webkit-box;
@@ -182,6 +182,7 @@ header .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  line-height: 2.3vw;
   cursor: pointer;
 }
 
@@ -189,16 +190,17 @@ header .container {
   color: #000;
 }
 
-.slash {
+.partition:not(:last-child):after {
+  content: "";
+  margin-left: 3vw;
   width: 1px;
-  height: 70%;
+  height: 2.3vw;
   background-color: lightgray;
-  display: block;
-  -webkit-transform: rotate(20deg);
-          transform: rotate(20deg);
+  -webkit-transform: rotate(25deg);
+          transform: rotate(25deg);
 }
 
-/* ---- grid ---- */
+/* ---- Masonry Grid ---- */
 .grid {
   width: 55vw;
   margin: auto;

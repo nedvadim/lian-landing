@@ -113,13 +113,13 @@ header {
   }
 }
 // Section two
-.partitions {
+.partitions-container {
   width: 85vw;
   height: 70px;
   margin: 30px auto;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
-  ul {
+  .partitions {
     width: 75%;
     margin: 0 auto;
     display: flex;
@@ -129,26 +129,31 @@ header {
     height: 100%;
   }
 }
+
 .partition {
   text-transform: uppercase;
   height: auto;
   font-weight: bold;
   color: #777;
   display: flex;
+  line-height: 2.3vw;
   cursor: pointer;
   &:hover {
     color: #000;
   }
-}
-.slash {
-  width: 1px;
-  height: 70%;
-  background-color: lightgray;
-  display: block;
-  transform: rotate(20deg);
+  &:not(:last-child) {
+    &:after {
+      content: "";
+      margin-left: 3vw;
+      width: 1px;
+      height: 2.3vw;
+      background-color: lightgray;
+      transform: rotate(25deg);
+    }
+  }
 }
 
-/* ---- grid ---- */
+/* ---- Masonry Grid ---- */
 
 .grid {
   width: 55vw;
@@ -177,7 +182,6 @@ header {
     z-index: 10;
   }
 }
-
 .grid-item-wrapper {
   position: absolute;
   background-color: gray;
