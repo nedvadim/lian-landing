@@ -7,7 +7,9 @@
 html {
   overflow-y: scroll;
 }
+
 // Header section
+
 header {
   height: 90px;
   box-shadow: 0px -16px 16px 5px #000;
@@ -38,6 +40,7 @@ header {
   justify-content: space-between;
   height: 100%;
   min-width: 500px;
+  width: 100%;
   transition: all 0.5s ease-out;
   li {
     list-style: none;
@@ -49,6 +52,7 @@ header {
 }
 
 // Section one (Slider)
+
 .section-one {
   height: auto;
 }
@@ -112,14 +116,17 @@ header {
     font-size: 1.2rem;
   }
 }
+
 // Section two
-.partitions-container {
+
+.filter-buttons-container {
   width: 85vw;
-  height: 70px;
+  height: auto;
   margin: 30px auto;
+  padding: 1rem 0;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
-  .partitions {
+  .filter-buttons-list {
     width: 75%;
     margin: 0 auto;
     display: flex;
@@ -129,14 +136,13 @@ header {
     height: 100%;
   }
 }
-
-.partition {
+.filter-button {
   text-transform: uppercase;
   height: auto;
   font-weight: bold;
   color: #777;
   display: flex;
-  line-height: 2.3vw;
+  line-height: 45px;
   cursor: pointer;
   &:hover {
     color: #000;
@@ -146,27 +152,22 @@ header {
       content: "";
       margin-left: 3vw;
       width: 1px;
-      height: 2.3vw;
+      height: 45px;
       background-color: lightgray;
       transform: rotate(25deg);
     }
   }
 }
-
 /* ---- Masonry Grid ---- */
-
 .grid {
   width: 55vw;
   margin: auto;
 }
-
-/* clear fix */
 .grid:after {
   content: "";
   display: block;
   clear: both;
 }
-/* ---- .grid-item ---- */
 .grid-sizer,
 .grid-item {
   width: 33.333%;
@@ -206,8 +207,80 @@ header {
   max-width: 100%;
 }
 
+// Footer
+
+.footer {
+  height: auto;
+  width: 100%;
+  .footer-logo {
+    display: block;
+    margin: 3rem auto;
+  }
+}
+.social-networks {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 1.5rem 0;
+  .social-networks-list {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    width: 55vw;
+    margin: 0 auto;
+    a {
+      text-decoration: none;
+      color: #777;
+    }
+  }
+}
+.fa-facebook-f {
+  &:hover {
+    color: #3b5998;
+  }
+}
+.fa-google-plus-g {
+  &:hover {
+    color: #db4a39;
+  }
+}
+.fa-twitter {
+  &:hover {
+    color: #00acee;
+  }
+}
+.fa-linkedin-in {
+  &:hover {
+    color: #0e76a8;
+  }
+}
+.fa-pinterest {
+  &:hover {
+    color: #c8232c;
+  }
+}
+.fa-dribbble {
+  &:hover {
+    color: #ea4c89;
+  }
+}
+.fa-instagram {
+  &:hover {
+    color: #3f729b;
+  }
+}
+.copyright {
+  padding: 3.2rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #777;
+  span {
+    color: #000;
+  }
+}
+
 @media screen and (max-width: 768px) {
   // Header
+
   .hamburger {
     display: flex;
     justify-content: space-around;
@@ -229,6 +302,7 @@ header {
     width: 100%;
     height: 40vh;
     z-index: 1000;
+    min-width: 320px;
     background-color: #fff;
   }
   .display {
@@ -236,7 +310,9 @@ header {
     display: flex;
     left: 0;
   }
+
   // Section one
+
   .slide-text {
     .slide-text-header {
       font-size: 1.5rem;
@@ -245,16 +321,31 @@ header {
       font-size: 1rem;
     }
   }
-  // Section two
-  .partitions {
-    height: 40px;
-    margin: 10px auto;
-    ul {
-      width: 100%;
+  .slider-buttons {
+    .prev,
+    .next {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
     }
   }
-  .partition {
-    font-size: 11px;
+
+  // Section two
+
+  .filter-buttons-container {
+    width: 100%;
+    padding: 0;
+    .filter-buttons-list {
+      width: 90%;
+      height: auto;
+      margin: 10px auto;
+      ul {
+        width: 100%;
+      }
+    }
+  }
+  .filter-button {
+    font-size: 12px;
   }
   .grid {
     width: 90vw;
@@ -262,6 +353,7 @@ header {
 }
 @media screen and (max-width: 575.98px) {
   // Section one
+
   .slide-text {
     .slide-text-header {
       font-size: 1rem;
@@ -272,9 +364,23 @@ header {
   }
 
   // Section two
-  .partitions {
-    height: 30px;
-    margin: 5px auto;
+
+  .filter-buttons-container {
+    padding: 0;
+    margin: 12px auto;
+    .filter-buttons-list {
+      height: 30px;
+      margin: 0 auto;
+    }
+  }
+  .filter-button {
+    font-size: 9px;
+    line-height: 27px;
+    &:not(:last-child) {
+      &:after {
+        height: 27px;
+      }
+    }
   }
   .grid-sizer,
   .grid-item {

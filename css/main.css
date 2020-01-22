@@ -57,6 +57,7 @@ header .container {
           justify-content: space-between;
   height: 100%;
   min-width: 500px;
+  width: 100%;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
 }
@@ -151,15 +152,16 @@ header .container {
   font-size: 1.2rem;
 }
 
-.partitions-container {
+.filter-buttons-container {
   width: 85vw;
-  height: 70px;
+  height: auto;
   margin: 30px auto;
+  padding: 1rem 0;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
 }
 
-.partitions-container .partitions {
+.filter-buttons-container .filter-buttons-list {
   width: 75%;
   margin: 0 auto;
   display: -webkit-box;
@@ -174,7 +176,7 @@ header .container {
   height: 100%;
 }
 
-.partition {
+.filter-button {
   text-transform: uppercase;
   height: auto;
   font-weight: bold;
@@ -182,19 +184,19 @@ header .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  line-height: 2.3vw;
+  line-height: 45px;
   cursor: pointer;
 }
 
-.partition:hover {
+.filter-button:hover {
   color: #000;
 }
 
-.partition:not(:last-child):after {
+.filter-button:not(:last-child):after {
   content: "";
   margin-left: 3vw;
   width: 1px;
-  height: 2.3vw;
+  height: 45px;
   background-color: lightgray;
   -webkit-transform: rotate(25deg);
           transform: rotate(25deg);
@@ -206,14 +208,12 @@ header .container {
   margin: auto;
 }
 
-/* clear fix */
 .grid:after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* ---- .grid-item ---- */
 .grid-sizer,
 .grid-item {
   width: 33.333%;
@@ -268,6 +268,77 @@ header .container {
   max-width: 100%;
 }
 
+.footer {
+  height: auto;
+  width: 100%;
+}
+
+.footer .footer-logo {
+  display: block;
+  margin: 3rem auto;
+}
+
+.social-networks {
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 1.5rem 0;
+}
+
+.social-networks .social-networks-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 55vw;
+  margin: 0 auto;
+}
+
+.social-networks .social-networks-list a {
+  text-decoration: none;
+  color: #777;
+}
+
+.fa-facebook-f:hover {
+  color: #3b5998;
+}
+
+.fa-google-plus-g:hover {
+  color: #db4a39;
+}
+
+.fa-twitter:hover {
+  color: #00acee;
+}
+
+.fa-linkedin-in:hover {
+  color: #0e76a8;
+}
+
+.fa-pinterest:hover {
+  color: #c8232c;
+}
+
+.fa-dribbble:hover {
+  color: #ea4c89;
+}
+
+.fa-instagram:hover {
+  color: #3f729b;
+}
+
+.copyright {
+  padding: 3.2rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.copyright span {
+  color: #000;
+}
+
 @media screen and (max-width: 768px) {
   .hamburger {
     display: -webkit-box;
@@ -301,6 +372,7 @@ header .container {
     width: 100%;
     height: 40vh;
     z-index: 1000;
+    min-width: 320px;
     background-color: #fff;
   }
   .display {
@@ -316,15 +388,26 @@ header .container {
   .slide-text .slide-text-p {
     font-size: 1rem;
   }
-  .partitions {
-    height: 40px;
+  .slider-buttons .prev,
+  .slider-buttons .next {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+  .filter-buttons-container {
+    width: 100%;
+    padding: 0;
+  }
+  .filter-buttons-container .filter-buttons-list {
+    width: 90%;
+    height: auto;
     margin: 10px auto;
   }
-  .partitions ul {
+  .filter-buttons-container .filter-buttons-list ul {
     width: 100%;
   }
-  .partition {
-    font-size: 11px;
+  .filter-button {
+    font-size: 12px;
   }
   .grid {
     width: 90vw;
@@ -338,9 +421,20 @@ header .container {
   .slide-text .slide-text-p {
     font-size: 0.4rem;
   }
-  .partitions {
+  .filter-buttons-container {
+    padding: 0;
+    margin: 12px auto;
+  }
+  .filter-buttons-container .filter-buttons-list {
     height: 30px;
-    margin: 5px auto;
+    margin: 0 auto;
+  }
+  .filter-button {
+    font-size: 9px;
+    line-height: 27px;
+  }
+  .filter-button:not(:last-child):after {
+    height: 27px;
   }
   .grid-sizer,
   .grid-item {
