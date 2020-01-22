@@ -3,6 +3,9 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
   font-family: sans-serif;
 }
 
@@ -300,7 +303,7 @@ header .container {
   color: #777;
 }
 
-.fa-facebook-f:hover {
+.icon-fb:hover {
   color: #3b5998;
 }
 

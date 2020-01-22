@@ -2,8 +2,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+body {
   font-family: sans-serif;
 }
+
 html {
   overflow-y: scroll;
 }
@@ -233,7 +236,7 @@ header {
     }
   }
 }
-.fa-facebook-f {
+.icon-fb {
   &:hover {
     color: #3b5998;
   }
