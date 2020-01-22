@@ -1,8 +1,7 @@
 const btns = document.querySelectorAll(".partition");
 var grid = document.querySelector(".grid");
-const articles = document.querySelectorAll(".grid-item");
 
-const allArticles = document.querySelectorAll(".all");
+const allArticles = document.querySelectorAll(".grid-item");
 const brandingArticles = document.querySelectorAll(".branding");
 const logoArticles = document.querySelectorAll(".logo");
 const wPressArticles = document.querySelectorAll(".wPress");
@@ -15,7 +14,7 @@ const articlesList = [
   { node: logoArticles, name: "logo" },
   { node: wPressArticles, name: "wPress" },
   { node: webDesignArticles, name: "webDesign" },
-  { node: uiux, name: "uiux" }
+  { node: uiuxArticles, name: "uiux" }
 ];
 
 // setting up masonry grid -------
@@ -32,29 +31,27 @@ imagesLoaded(grid).on("progress", function() {
 // Attaching events to each button
 btns.forEach(btn => {
   btn.addEventListener("click", () => {
-    articles.forEach(article => {
+    allArticles.forEach(article => {
       article.remove();
       msnry.layout();
     });
     msnry.layout();
 
-    console.log("btn.id:  " + btn.id);
-
-    articlesList.forEach(article => {
-      if (article.name === btn.id) {
-        console.log(article);
-        article.node.forEach(node => {
-          grid.appendChild(node);
-          msnry.layout();
-        });
-      }
-    });
-
-    // brandingArticles.forEach(art => {
-    //   grid.appendChild(art);
-    //   msnry.layout();
-    // });
-
-    // appendBack needed articles and msnry.layout();
+    if (btn.id === "all") {
+      allArticles.forEach(article => {
+        grid.appendChild(article);
+        msnry.layout();
+      });
+      return;
+    } else {
+      articlesList.forEach(article => {
+        if (article.name === btn.id) {
+          article.node.forEach(node => {
+            grid.appendChild(node);
+            msnry.layout();
+          });
+        }
+      });
+    }
   });
 });
