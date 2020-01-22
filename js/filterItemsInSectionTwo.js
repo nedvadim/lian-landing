@@ -2,22 +2,16 @@ const btns = document.querySelectorAll(".partition");
 var grid = document.querySelector(".grid");
 
 const allArticles = document.querySelectorAll(".grid-item");
-const brandingArticles = document.querySelectorAll(".branding");
-const logoArticles = document.querySelectorAll(".logo");
-const wPressArticles = document.querySelectorAll(".wPress");
-const webDesignArticles = document.querySelectorAll(".webDesign");
-const uiuxArticles = document.querySelectorAll(".uiux");
-
-const articlesList = [
+const articlesSections = [
   { node: allArticles, name: "all" },
-  { node: brandingArticles, name: "branding" },
-  { node: logoArticles, name: "logo" },
-  { node: wPressArticles, name: "wPress" },
-  { node: webDesignArticles, name: "webDesign" },
-  { node: uiuxArticles, name: "uiux" }
+  { node: document.querySelectorAll(".branding"), name: "branding" },
+  { node: document.querySelectorAll(".logo"), name: "logo" },
+  { node: document.querySelectorAll(".wPress"), name: "wPress" },
+  { node: document.querySelectorAll(".webDesign"), name: "webDesign" },
+  { node: document.querySelectorAll(".uiux"), name: "uiux" }
 ];
 
-// setting up masonry grid -------
+// Setting up Masonry Grid
 var msnry = new Masonry(grid, {
   itemSelector: ".grid-item",
   columnWidth: ".grid-sizer",
@@ -30,28 +24,41 @@ imagesLoaded(grid).on("progress", function() {
 
 // Attaching events to each button
 btns.forEach(btn => {
+  // If "all" button was clicked - append all articles and return;
   btn.addEventListener("click", () => {
-    allArticles.forEach(article => {
-      article.remove();
-      msnry.layout();
-    });
-    msnry.layout();
-
-    if (btn.id === "all") {
-      allArticles.forEach(article => {
-        grid.appendChild(article);
-        msnry.layout();
-      });
-      return;
-    } else {
-      articlesList.forEach(article => {
-        if (article.name === btn.id) {
-          article.node.forEach(node => {
-            grid.appendChild(node);
-            msnry.layout();
-          });
-        }
-      });
+    if (attachAllArticlesIfNeeded(btn.id)) {
+      return; // If "all" button was clicked, then articles was attached in function above. Return from current function
     }
+    deleteAllArticlesFromGrid();
+    articlesSections.forEach(section => {
+      appendAppropriateArticle(section, btn.id);
+    });
   });
 });
+
+function attachAllArticlesIfNeeded(buttonId) {
+  if (buttonId === "all") {
+    allArticles.forEach(article => {
+      grid.appendChild(article);
+      msnry.layout();
+    });
+    return true;
+  }
+  return false;
+}
+
+function deleteAllArticlesFromGrid() {
+  allArticles.forEach(article => {
+    article.remove();
+    msnry.layout();
+  });
+}
+
+function appendAppropriateArticle(section, buttonId) {
+  if (section.name === buttonId) {
+    section.node.forEach(node => {
+      grid.appendChild(node);
+      msnry.layout();
+    });
+  }
+}
